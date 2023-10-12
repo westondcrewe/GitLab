@@ -10,12 +10,16 @@ long as you list those resources (e.g. peers, websites, etc.)
 xanda_0000_movie_processing?
 (For this and future questions, the first 5 characters is plenty - neither
 Git nor I need the whole SHA.)
+9b257
 
 2. What is the SHA for the last commit associated with line 9 of this file?
+b2ed3
 
 3. What did line 12 of this file say in commit d1d83?
+"Git nor I need the whole SHA.)"
 
 4. What changed between commit e474c and 82045?
+Edits were made to the process_movie_data.py file to change the assignments of gross_sort to lambda x : int(x["Gross"]) instead of lambda x : x["Gross"], and top_five to rows[:-6:-1] instead of rows[:-5:-1].
 
 ## Predicting merges
 
@@ -37,6 +41,8 @@ What branches would change, and how?
 git checkout test
 git merge top_N
 ```
+The first command will make test the active branch, or the one that the head pointer points to. 
+The second command will take that active test branch and point it to the commit that top_N points to.
 
 6. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -44,6 +50,7 @@ What branches would change, and how?
 git checkout top_ten
 git merge test
 ```
+This will make the head pointer point to the top_ten branch, and then top_ten will point to the same commit that test points to.
 
 7. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -52,3 +59,4 @@ git checkout test
 git rebase top_ten
 git rebase top_N
 ```
+This will make the head pointer point to the test branch, then append the commits belonging to the top_ten branch and append them to the test branch, then, append all of the branches belonging to the top_N branch to the (new version of the) test branch.
